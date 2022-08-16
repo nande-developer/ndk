@@ -2,7 +2,7 @@ class BaseHandler {
   successResponse(res, message = 'Success', data = null, statusCode = 200) {
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message,
         data: data
       });
@@ -12,7 +12,7 @@ class BaseHandler {
     const statusCode = 400;
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message,
         data: data
       });
@@ -22,7 +22,7 @@ class BaseHandler {
     const statusCode = 403;
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message
       });
   }
@@ -31,7 +31,7 @@ class BaseHandler {
     const statusCode = 500;
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message,
         error: process.env.DEBUG === 'true' ? error.stack : 'error stack can be showed'
       });
@@ -41,7 +41,7 @@ class BaseHandler {
     const statusCode = 422;
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message,
         data: validation
       });
@@ -51,7 +51,7 @@ class BaseHandler {
     const statusCode = 401;
     return res.status(statusCode)
       .send({
-        status_code: statusCode,
+        code: statusCode,
         message: message
       });
   }
