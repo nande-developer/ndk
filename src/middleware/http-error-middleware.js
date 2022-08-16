@@ -1,7 +1,7 @@
 const BaseHandler = require('../http/base-handler');
 
 class ErrorMiddleware extends BaseHandler {
-  static handleMiddleware(err, req, res, next) {
+  handleMiddleware(err, req, res, next) {
     if (err) {
       if (err.status === 422) {
         return super.unprocessableEntityResponse(res, err.message, err.details);
@@ -13,4 +13,4 @@ class ErrorMiddleware extends BaseHandler {
   }
 }
 
-module.exports = ErrorMiddleware;
+module.exports = new ErrorMiddleware;
