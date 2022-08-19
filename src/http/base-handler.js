@@ -18,6 +18,15 @@ class BaseHandler {
       });
   }
   
+  unauthorized(res, message = 'Unauthorized') {
+    const statusCode = 401;
+    return res.status(statusCode)
+      .send({
+        code: statusCode,
+        message: message
+      });
+  }
+  
   forbidden(res, message = 'Forbidden') {
     const statusCode = 403;
     return res.status(statusCode)
@@ -27,13 +36,12 @@ class BaseHandler {
       });
   }
   
-  internalErrorResponse(res, message, error) {
-    const statusCode = 500;
+  notFoundResponse(res, message = 'Not Found') {
+    const statusCode = 404;
     return res.status(statusCode)
       .send({
         code: statusCode,
-        message: message,
-        error: process.env.DEBUG === 'true' ? error.stack : 'error stack can be showed'
+        message: message
       });
   }
   
@@ -47,12 +55,13 @@ class BaseHandler {
       });
   }
   
-  unauthorized(res, message = 'Unauthorized') {
-    const statusCode = 401;
+  internalErrorResponse(res, message, error) {
+    const statusCode = 500;
     return res.status(statusCode)
       .send({
         code: statusCode,
-        message: message
+        message: message,
+        error: process.env.DEBUG === 'true' ? error.stack : 'error stack can be showed'
       });
   }
 }
