@@ -1,20 +1,8 @@
-class ErrorValidation extends Error{
+const ErrorHTTP = require('./http');
+
+class ErrorValidation extends ErrorHTTP {
   constructor(message, details) {
-    super(message);
-    
-    Error.captureStackTrace(this, this.constructor);
-    
-    this.name = this.constructor.name;
-    this.status = 422;
-    this.details = details;
-  }
-  
-  statusCode() {
-    return this.status;
-  }
-  
-  validationDetail() {
-    return this.details;
+    super(message, details, 422);
   }
 }
 
