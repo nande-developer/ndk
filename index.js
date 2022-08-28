@@ -11,8 +11,10 @@ const BcryptHelper = require('./src/crypto/bcrypt');
 module.exports.BcryptHelper = BcryptHelper;
 
 const ErrorValidation = require('./src/errors/validation');
+const ErrorHTTP = require('./src/errors/http');
 
 module.exports.ErrorValidation = ErrorValidation;
+module.exports.ErrorHTTP = ErrorHTTP;
 
 const HTTPBaseHandler = require('./src/http/base-handler');
 
