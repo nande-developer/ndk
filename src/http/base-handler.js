@@ -7,7 +7,7 @@ class BaseHandler {
         data: data
       });
   }
-  
+
   badRequest(res, message = 'Bad Request', data = null) {
     const statusCode = 400;
     return res.status(statusCode)
@@ -17,7 +17,7 @@ class BaseHandler {
         data: data
       });
   }
-  
+
   unauthorized(res, message = 'Unauthorized') {
     const statusCode = 401;
     return res.status(statusCode)
@@ -26,7 +26,7 @@ class BaseHandler {
         message: message
       });
   }
-  
+
   forbidden(res, message = 'Forbidden') {
     const statusCode = 403;
     return res.status(statusCode)
@@ -35,16 +35,17 @@ class BaseHandler {
         message: message
       });
   }
-  
+
   notFoundResponse(res, message = 'Not Found') {
     const statusCode = 404;
     return res.status(statusCode)
       .send({
         code: statusCode,
-        message: message
+        message: message,
+        data: []
       });
   }
-  
+
   unprocessableEntityResponse(res, message, validation) {
     const statusCode = 422;
     return res.status(statusCode)
@@ -54,7 +55,7 @@ class BaseHandler {
         data: validation
       });
   }
-  
+
   internalErrorResponse(res, message, error) {
     const statusCode = 500;
     return res.status(statusCode)
