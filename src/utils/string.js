@@ -15,7 +15,7 @@ class StringHelper {
     }
     return pad.substring(0, pad.length - str.length) + str;
   }
-  
+
   /**
    *
    * @param length {number}
@@ -33,25 +33,25 @@ class StringHelper {
       result += characters[index];
       if (options.unique) characters.splice(index, 1);
     }
-    
+
     return result;
   }
-  
+
   /**
    *
    * @param fileName {string}
    * @returns {string}
    */
-  getFileExtension(fileName) {
+  static getFileExtension(fileName) {
     return path.extname(fileName);
   }
-  
+
   /**
    *
    * @param str {string}
    * @returns {string}
    */
-  urlEncode(str) {
+  static urlEncode(str) {
     return encodeURIComponent(str);
   }
 }
