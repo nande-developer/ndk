@@ -1,4 +1,5 @@
-const path = require("path");
+const path = require('path');
+const slugify = require('slugify');
 
 class StringHelper {
   /**
@@ -53,6 +54,22 @@ class StringHelper {
    */
   static urlEncode(str) {
     return encodeURIComponent(str);
+  }
+  
+  static generateSlug(title, addRandomSuffix = false) {
+    let text = title;
+    if (addRandomSuffix) {
+      text += ' ' + this.randomString(8, {
+        characters: '0123456789abcdef'
+      })
+    }
+    
+    return slugify(text, {
+      replacement: '-',
+      lower: true,
+      strict: true,
+      trim: true
+    })
   }
 }
 
